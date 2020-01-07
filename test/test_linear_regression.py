@@ -8,7 +8,7 @@ def test_LinearRegression():
     y = x.matmul(w)
     y = y + Tensor(np.random.rand(128, 1))  # 偏差
 
-    lr = LinearRegression(20, 1)
+    lr = LinearRegression(20, 1, criterion='L1')
     lr.fit(x, y, num_epochs=50000)
 
     state_dict = lr.model.state_dict()

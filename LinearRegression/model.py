@@ -3,11 +3,22 @@ from torch import nn
 
 
 class LinearRegression():
-    def __init__(self, input_size, output_size, learning_rate=0.001):
+    def __init__(self,
+                 input_size,
+                 output_size,
+                 criterion='MSE',
+                 learning_rate=0.001):
         super(LinearRegression, self).__init__()
 
         self.model = nn.Linear(input_size, output_size)
-        self.criterion = nn.MSELoss()
+
+        if criterion == 'MSE':
+            self.criterion = nn.MSELoss()
+        elif criterion == 'L1':
+            self.criterion = nn.L1Loss()
+        else:
+            raise ValueError('不支持的 loss 类型')
+
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=learning_rate)
 
     def fit(self, X, y, num_epochs=50):
