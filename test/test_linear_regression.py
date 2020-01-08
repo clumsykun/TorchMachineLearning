@@ -3,19 +3,23 @@ from LinearRegression.model import LinearRegression
 from torch import Tensor
 
 def test_LinearRegression():
-    x = Tensor( np.random.rand(128, 20) * 10 )
-    w = Tensor( np.random.rand(20, 1) * 10)
+    num_sample = 12800
+    in_features = 20
+    out_features = 1
+    x = Tensor( np.random.rand(num_sample, in_features) * 10 )
+    w = Tensor( np.random.rand(in_features, out_features) * 10)
     y = x.matmul(w)
-    y = y + Tensor(np.random.rand(128, 1))  # 偏差
+    y = y + Tensor(np.random.rand(num_sample, out_features))  # 偏差
 
-    lr = LinearRegression(20, 1, criterion='L1')
-    lr.fit(x, y, num_epochs=50000)
+    lr = LinearRegression(in_features, out_features, criterion='L1')
+    lr.fit(x, y, num_epochs=100000)
 
     state_dict = lr.model.state_dict()
-    print(state_dict['weight'])
-    print(w.view(-1))
+    print(state_dict['weight'].view(-1)[:10])
+    print(w.view(-1)[:10])
 
     print(1)
+
 
 if __name__ == "__main__":
     pass
