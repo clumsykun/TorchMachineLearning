@@ -1,5 +1,5 @@
 import numpy as np
-from linear_model.model import LinearRegression
+from linear_model.linear_regression import LinearRegression
 from torch import Tensor
 
 def test_LinearRegression():

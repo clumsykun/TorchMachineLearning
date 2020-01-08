@@ -1,14 +1,6 @@
 import torch
-from decision_tree.model import information_entropy, DecisionTreeClassifier
+from classifier import DecisionTreeClassifier
 import pandas as pd
-
-
-def test_information_entropy():
-
-    x = torch.Tensor([1, 1, 1, 1, 2])
-    y = information_entropy(x)
-    print(y)
-
 
 def test_DecisionTreeClassifier():
     watermelon = pd.read_csv('test/watermelon.csv')

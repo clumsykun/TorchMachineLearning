@@ -7,7 +7,7 @@ from torch import Tensor
 plt.switch_backend('agg')
 
 
-def test_kmeans():
+def test_KMeans():
     X, y = make_blobs(
         n_samples=1000,
         centers=[
