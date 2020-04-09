@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 class MLPRegressor(keras.Model):
     def __init__(self, n_property):
         super(MLPRegressor, self).__init__(name='MLP_Regressor')
-        
+
         self.dense1 = keras.layers.Dense(32, activation='sigmoid', name='dense_1', input_shape=(n_property, ))
         self.dense2 = keras.layers.Dense(32, activation='sigmoid', name='dense_2')
         self.dense3 = keras.layers.Dense(32, activation='sigmoid', name='dense_3')
