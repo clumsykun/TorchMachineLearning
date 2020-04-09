@@ -1,3 +1,3 @@
-# Torch Machine Learning
+# TensorFlow Extension
 
-A machine learning package based on pytorch and numpy.
+A machine learning package based on TensorFlow.
